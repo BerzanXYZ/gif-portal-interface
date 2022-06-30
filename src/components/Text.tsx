@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { ReactNode } from 'react'
 import tailt from 'tailt'
 
 // BrandName is the brand logo on left of the Header
