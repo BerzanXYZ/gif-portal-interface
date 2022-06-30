@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
+import { ButtonWallet } from '../components/ButtonWallet'
 import { Footer, Header, Main, Page } from '../components/Common'
 import { BrandName, TextFooter, TextURL } from '../components/Text'
 
@@ -14,12 +15,11 @@ const Home: NextPage = () => {
 
       <Header>
         <BrandName/>
+        <ButtonWallet/>
       </Header>
-
       <Main>
 
       </Main>
-
       <Footer>
         <TextFooter>Made with ❤️ by <TextURL href='https://twitter.com/BerzanXYZ'>@BerzanXYZ</TextURL></TextFooter>
       </Footer>
