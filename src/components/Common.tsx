@@ -24,6 +24,6 @@ export const Header = tailt.header`
 // Footer component represents HTML footer element
 export const Footer = tailt.footer`
     flex items-center justify-center
-    w-full max-w-6xl px-4 py-4
+    w-full px-4 py-4
     bg-zinc-800 text-white
 `
