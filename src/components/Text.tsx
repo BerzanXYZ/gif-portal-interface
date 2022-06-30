@@ -1,9 +1,12 @@
+import Link from 'next/link'
 import { ReactNode } from 'react'
 import tailt from 'tailt'
 
 // BrandName is the brand logo on left of the Header
 export const BrandName = () => (
-    <h1 className='font-semibold text-2xl'>Gif Portal</h1>
+    <h1 className='font-semibold text-2xl select-none'>
+        <Link href='/'>Gif Portal</Link>
+    </h1>
 )
 
 // TextFooter is the text in the Footer
