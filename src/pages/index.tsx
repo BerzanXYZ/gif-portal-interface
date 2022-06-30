@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { ButtonWallet } from '../components/ButtonWallet'
 import { Footer, Header, Main, Page } from '../components/Common'
+import { SideBar } from '../components/SideBar'
 import { BrandName, TextFooter, TextURL } from '../components/Text'
 
 const Home: NextPage = () => {
@@ -18,7 +19,7 @@ const Home: NextPage = () => {
         <ButtonWallet/>
       </Header>
       <Main>
-
+        <SideBar/>
       </Main>
       <Footer>
         <TextFooter>Made with ❤️ by <TextURL href='https://twitter.com/BerzanXYZ'>@BerzanXYZ</TextURL></TextFooter>
