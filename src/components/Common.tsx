@@ -9,7 +9,7 @@ export const Page = tailt.div`
 
 // Main component represents HTML main element
 export const Main = tailt.main`
-    flex flex-col
+    flex
     flex-1
 `
 

@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { ButtonWallet } from '../components/ButtonWallet'
 import { Footer, Header, Main, Page } from '../components/Common'
+import { GridGif } from '../components/GridGIF'
 import { SideBar } from '../components/SideBar'
 import { BrandName, TextFooter, TextURL } from '../components/Text'
 
@@ -20,6 +21,7 @@ const Home: NextPage = () => {
       </Header>
       <Main>
         <SideBar/>
+        <GridGif gifList={[]}/>
       </Main>
       <Footer>
         <TextFooter>Made with ❤️ by <TextURL href='https://twitter.com/BerzanXYZ'>@BerzanXYZ</TextURL></TextFooter>
