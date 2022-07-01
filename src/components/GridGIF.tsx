@@ -12,7 +12,8 @@ export const GridGif = ({ gifList }: { gifList: string[] }) => {
 }
 
 const Div = tailt.div`
-    
+    max-h-[calc(100vh-8rem)]
+    overflow-y-auto
 `
 
 const Grid = tailt.div`
