@@ -1,19 +1,32 @@
+import { ChangeEvent, useRef, useState } from 'react'
 import tailt from 'tailt'
+import { useGifListContext } from '../contexts/GifLinkContextProvider'
 import { useWalletContext } from '../contexts/WalletContextProvider'
 
 export const SideBar = () => {
     const { publicKey } = useWalletContext()
+    const { addGifList } = useGifListContext()
+
+    const inputRef = useRef<HTMLInputElement>(null)
+
+    async function sendGif() {
+        if(!inputRef.current?.value) return
+
+        alert(inputRef.current.value)
+        addGifList(inputRef.current.value)
+        inputRef.current.value = ''
+    }
 
     return (
         <StickyDiv>
             <PubKeyDiv>
                 <PubKeyLabel>Public Key: </PubKeyLabel>
-                <PubKeyText>{publicKey ? publicKey.slice(0, 30) + '...' : "You didn't connected a wallet"}</PubKeyText>
+                <PubKeyText>{publicKey ? publicKey.slice(0, 30) + '...' : "You didn't connect a wallet"}</PubKeyText>
             </PubKeyDiv>
             <LinkDiv>
                 <LinkLabel>GIF Link :</LinkLabel>
-                <LinkInput type='url'/>
-                <LinkButton>Share</LinkButton>
+                <LinkInput ref={inputRef} disabled={!publicKey}type='url'/>
+                <LinkButton onClick={sendGif} disabled={!publicKey}>Share</LinkButton>
             </LinkDiv>
         </StickyDiv>
     )
@@ -52,7 +65,7 @@ const LinkInput = tailt.input`
     rounded-xl
     bg-zinc-800
     border border-zinc-700 hover:border-zinc-600 focus:border-green-600
-    outline-none duration-200
+    disabled:cursor-not-allowed outline-none duration-200
 `
 
 const LinkButton = tailt.button`
@@ -60,6 +73,7 @@ const LinkButton = tailt.button`
     rounded-xl
     hover:scale-[0.98] active:scale-100
     bg-green-700 hover:bg-green-600 active:bg-green-500
-    duration-200
+    disabled:bg-zinc-700 disabled:hover:bg-zinc-700
+    disabled:cursor-not-allowed duration-200
     font-semibold
 `

@@ -1,8 +1,10 @@
 import tailt from 'tailt'
+import { useGifListContext } from '../contexts/GifLinkContextProvider'
 import { useWalletContext } from '../contexts/WalletContextProvider'
 
-export const GridGif = ({ gifList }: { gifList: string[] }) => {
+export const GridGif = () => {
     const { publicKey } = useWalletContext()
+    const { gifList } = useGifListContext()
 
     return (
         <Div>

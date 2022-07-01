@@ -28,7 +28,7 @@ const Home: NextPage = () => {
       </Header>
       <Main>
         <SideBar/>
-        <GridGif gifList={GIF_LIST}/>
+        <GridGif/>
       </Main>
       <Footer>
         <TextFooter>Made with ❤️ by <TextURL href='https://twitter.com/BerzanXYZ'>@BerzanXYZ</TextURL></TextFooter>
