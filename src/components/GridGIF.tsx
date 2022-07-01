@@ -1,12 +1,12 @@
 import tailt from 'tailt'
+import { useWalletContext } from '../contexts/WalletContextProvider'
 
 export const GridGif = ({ gifList }: { gifList: string[] }) => {
+    const { publicKey } = useWalletContext()
 
     return (
         <Div>
-            <Grid>
-                {gifList.map((gif, i) => <Item key={i+100} src={gif}/>)}
-            </Grid>
+            {publicKey && <Grid>{gifList.map((gif, i) => <Item key={i+100} src={gif}/>)}</Grid>}
         </Div>
     )
 }
