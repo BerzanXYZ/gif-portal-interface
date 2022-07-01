@@ -11,10 +11,6 @@ const GIF_LIST = [
 	'https://media3.giphy.com/media/L71a8LW2UrKwPaWNYM/giphy.gif',
 	'https://media4.giphy.com/media/AeFmQjHMtEySooOc8K/giphy.gif',
 	'https://i.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.webp',
-  'https://i.giphy.com/media/eIG0HfouRQJQr1wBzz/giphy.webp',
-	'https://media3.giphy.com/media/L71a8LW2UrKwPaWNYM/giphy.gif',
-	'https://media4.giphy.com/media/AeFmQjHMtEySooOc8K/giphy.gif',
-	'https://i.giphy.com/media/PAqjdPkJLDsmBRSYUp/giphy.webp',
 ]
 
 const Home: NextPage = () => {
