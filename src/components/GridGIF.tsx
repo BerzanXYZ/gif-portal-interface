@@ -11,10 +11,10 @@ export const GridGif = ({ gifList }: { gifList: string[] }) => {
 
 const Grid = tailt.div`
     grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3
-    w-full p-3 
+    w-full p-3 gap-4
     bg-zinc-800
 `
 
 const Item = ({ src } : { src: string }) => (
-    <img className='rounded-xl' width='100%' height='100%' alt='gif' src={src}/>
+    <img className='rounded-xl' width='100%' height='auto' alt='gif' src={src}/>
 )
