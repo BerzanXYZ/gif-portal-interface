@@ -1,4 +1,5 @@
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { initBaseAccount } from "../utils/solana";
 
 interface WalletContextState {
     publicKey: string,
@@ -23,9 +24,8 @@ export const WalletContextProvider = ({children}: {children: ReactNode}) => {
         if(!solana && !solana?.isPhantom) return
 
         await solana.connect()
-        console.log("connected");
+        await initBaseAccount()
         setConnected(true)
-        
     }
 
     // When Phantom wallet is connected, get public key
@@ -38,7 +38,9 @@ export const WalletContextProvider = ({children}: {children: ReactNode}) => {
             const res = await solana.connect()
             setPublicKey( res.publicKey.toString() )
         }
-        if(isConnected) getPublicKey()
+        if(!isConnected) return
+
+        getPublicKey()
     }, [isConnected])
 
     // If Phantom wallet is connected when page gets loaded
@@ -50,6 +52,7 @@ export const WalletContextProvider = ({children}: {children: ReactNode}) => {
             if(!solana && !solana?.isPhantom) return
             
             await solana.connect({ onlyIfTrusted: true })
+            await initBaseAccount()
             setConnected(true)
         }
         autoConnect()

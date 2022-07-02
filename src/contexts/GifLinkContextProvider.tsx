@@ -1,8 +1,10 @@
-import { createContext, ReactNode, useContext, useState } from "react"
+import { createContext, ReactNode, useContext, useEffect, useState } from "react"
+import { readGifList } from "../utils/solana"
+import { useWalletContext } from "./WalletContextProvider"
 
 interface GifListState {
     gifList: string[]
-    addGifList(gif: string): void
+    updateGifList(): Promise<void>
 }
 
 const GifListContext = createContext<GifListState>({} as GifListState)
@@ -13,13 +15,20 @@ export function useGifListContext() {
 
 export const GifListContextProvider = ({ children }: { children: ReactNode }) => {
     const [gifList, setGifList] = useState([] as string[])
+    const { publicKey } = useWalletContext()
 
-    function addGifList(gif: string) {
-        setGifList([gif, ...gifList])
+    async function updateGifList () {
+        const gifListFromProgram = await readGifList()
+        setGifList( gifListFromProgram )
     }
 
+    // Update the GIF list when a wallet connects
+    useEffect(() => {
+        if(publicKey) updateGifList()
+    }, [publicKey])
+
     return (
-        <GifListContext.Provider value={{ gifList, addGifList }}>{children}</GifListContext.Provider>
+        <GifListContext.Provider value={{ gifList, updateGifList }}>{children}</GifListContext.Provider>
     )
 
 }

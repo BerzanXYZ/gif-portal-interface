@@ -2,18 +2,19 @@ import { ChangeEvent, useRef, useState } from 'react'
 import tailt from 'tailt'
 import { useGifListContext } from '../contexts/GifLinkContextProvider'
 import { useWalletContext } from '../contexts/WalletContextProvider'
+import { sendGif } from '../utils/solana'
 
 export const SideBar = () => {
     const { publicKey } = useWalletContext()
-    const { addGifList } = useGifListContext()
+    const { updateGifList } = useGifListContext()
 
     const inputRef = useRef<HTMLInputElement>(null)
 
-    async function sendGif() {
+    async function shareGif() {
         if(!inputRef.current?.value) return
-
-        alert(inputRef.current.value)
-        addGifList(inputRef.current.value)
+        const url = inputRef.current.value
+        await sendGif(url)
+        await updateGifList()
         inputRef.current.value = ''
     }
 
@@ -26,7 +27,7 @@ export const SideBar = () => {
             <LinkDiv>
                 <LinkLabel>GIF Link :</LinkLabel>
                 <LinkInput ref={inputRef} disabled={!publicKey}type='url'/>
-                <LinkButton onClick={sendGif} disabled={!publicKey}>Share</LinkButton>
+                <LinkButton onClick={shareGif} disabled={!publicKey}>Share</LinkButton>
             </LinkDiv>
         </StickyDiv>
     )
