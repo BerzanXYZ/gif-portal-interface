@@ -1,4 +1,4 @@
-import { ChangeEvent, useRef, useState } from 'react'
+import { useRef } from 'react'
 import tailt from 'tailt'
 import { useGifListContext } from '../contexts/GifLinkContextProvider'
 import { useWalletContext } from '../contexts/WalletContextProvider'
