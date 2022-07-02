@@ -11,8 +11,12 @@ export const SideBar = () => {
     const inputRef = useRef<HTMLInputElement>(null)
 
     async function shareGif() {
-        if(!inputRef.current?.value) return
-        const url = inputRef.current.value
+        if(!inputRef.current?.value) {
+            alert('GIF link cannot be empty!')
+            return
+        }
+        // Handle URL errors
+        const url = inputRef.current.value.includes('https://') ? inputRef.current.value : 'https://' + inputRef.current.value
         await sendGif(url)
         await updateGifList()
         inputRef.current.value = ''
