@@ -21,7 +21,10 @@ export const WalletContextProvider = ({children}: {children: ReactNode}) => {
     const connect = async () => {
         const { solana } = window as any
 
-        if(!solana && !solana?.isPhantom) return
+        if(!solana && !solana?.isPhantom) {
+            alert('Install 👻 Phantom wallet!')
+            return
+        }
 
         await solana.connect()
         await initBaseAccount()
