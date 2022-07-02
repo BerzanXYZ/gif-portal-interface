@@ -10,7 +10,7 @@ export const GridGif = () => {
         <Div>
             <Title>GIF Posts</Title>
             {publicKey ?
-                gifList[0] ? <Grid>{gifList.map((gif, i) => <Item key={i+100} src={gif}/>)}</Grid> : <Info>Let's share some GIFs...</Info>
+                gifList[0] ? <Grid>{gifList.map((gif, i) => <Item key={i+100} src={gif}/>)}</Grid> : <Info>Let&#39;s share some GIFs...</Info>
                 :
                 <Info>Connect your wallet to see posts...</Info>
             }
@@ -37,7 +37,9 @@ const Grid = tailt.div`
 `
 
 const Item = ({ src } : { src: string }) => (
-    <img className='rounded-xl' width='100%' height='auto' alt='gif' src={src}/>
+    <picture>
+        <img className='rounded-xl' width='100%' height='auto' alt='gif' src={src}/>
+    </picture>
 )
 
 const Info = tailt.p`
