@@ -8,6 +8,7 @@ export const GridGif = () => {
 
     return (
         <Div>
+            <Title>GIF Posts</Title>
             {publicKey && <Grid>{gifList.map((gif, i) => <Item key={i+100} src={gif}/>)}</Grid>}
         </Div>
     )
@@ -16,6 +17,14 @@ export const GridGif = () => {
 const Div = tailt.div`
     max-h-[calc(100vh-8rem)]
     overflow-y-auto
+`
+
+const Title = tailt.h2`
+    sticky top-0
+    font-semibold text-3xl text-center
+    py-3
+    border-b border-b-zinc-700
+    bg-zinc-900 shadow-[0_0_1rem_black]
 `
 
 const Grid = tailt.div`
