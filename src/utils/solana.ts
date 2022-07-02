@@ -76,7 +76,13 @@ export async function readGifList() {
 // Send a gif to blockchain
 export async function sendGif(url: string) {
     // Check if url is valid
-    if(!(await fetch(url)).ok)  { 
+    url = url.includes('https://') ? url : 'https://' + url
+    try {
+        if(!(await fetch(url)).ok) {
+            alert("GIF link is not valid!")
+            return
+        }
+    } catch (e) {
         alert("GIF link is not valid!")
         return
     }

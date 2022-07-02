@@ -15,8 +15,7 @@ export const SideBar = () => {
             alert('GIF link cannot be empty!')
             return
         }
-        // Handle URL errors
-        const url = inputRef.current.value.includes('https://') ? inputRef.current.value : 'https://' + inputRef.current.value
+        const url = inputRef.current.value
         await sendGif(url)
         await updateGifList()
         inputRef.current.value = ''
