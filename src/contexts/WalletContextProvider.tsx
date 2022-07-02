@@ -55,7 +55,7 @@ export const WalletContextProvider = ({children}: {children: ReactNode}) => {
             await initBaseAccount()
             setConnected(true)
         }
-        autoConnect()
+        autoConnect().catch(e => {})
     }, [])
 
 
