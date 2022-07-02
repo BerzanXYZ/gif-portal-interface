@@ -1,6 +1,6 @@
 {
-  "name": "gif-portal-starter",
-  "version": "0.1.0",
+  "name": "gif-portal-interface",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
