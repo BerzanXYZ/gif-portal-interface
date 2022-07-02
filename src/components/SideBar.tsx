@@ -35,7 +35,7 @@ export const SideBar = () => {
 
 const StickyDiv = tailt.div`
     sticky flex flex-col
-    min-w-80 p-4 gap-y-14
+    min-w-80 p-4 gap-y-6
     border-r border-r-zinc-700
     bg-zinc-900
 `
