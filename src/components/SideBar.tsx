@@ -50,6 +50,7 @@ const PubKeyLabel = tailt.label`
 
 const PubKeyText = tailt.p`
     font-medium text-sm
+    opacity-70
 `
 
 const LinkDiv = tailt.div`
@@ -73,7 +74,7 @@ const LinkButton = tailt.button`
     h-10 px-4
     rounded-xl
     hover:scale-[0.98] active:scale-100
-    bg-green-700 hover:bg-green-600 active:bg-green-500
+    bg-lime-600 hover:bg-lime-500 active:bg-lime-400
     disabled:bg-zinc-700 disabled:hover:bg-zinc-700
     disabled:cursor-not-allowed duration-200
     font-semibold

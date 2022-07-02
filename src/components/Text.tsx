@@ -14,7 +14,7 @@ export const TextFooter = tailt.h3`
 `
 
 export const TextURL = ({ children, href }: {children: string, href: string}) => (
-    <span className='text-green-400'>
+    <span className='text-lime-400'>
         <a target='blank' href={href}>{children}</a>
     </span>
 )
